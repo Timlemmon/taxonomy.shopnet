@@ -1,0 +1,14 @@
+{
+    "name": "@shopnet/taxonomy",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "description": "Shopnet taxonomy governance - source of truth coordinator",
+    "scripts": {
+        "generate": "node generate-platform-types.mjs",
+        "generate:dry": "node generate-platform-types.mjs --dry-run"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

@@ -1,0 +1,115 @@
+{
+    "_meta": {
+        "description": "Static enrichment data merged with API-sourced taxonomy. Keyed by platform code.",
+        "source": "ThisIsTheLaw_v5.0_2026-02-07.MD",
+        "updated": "2026-02-07"
+    },
+
+    "endpoint_types": {
+        "W": { "description": "Web pages served to browsers" },
+        "A": { "description": "AI agent endpoint" },
+        "D": { "description": "Data storage endpoint" },
+        "N": { "description": "Network service nodes (gateways, APIs, hubs)" },
+        "I": { "description": "Infrastructure components (servers, queues, storage)" },
+        "O": { "description": "Other endpoint type" }
+    },
+
+    "website_platforms": {
+        "CO": { "runtime": "lambda", "host": "api_gateway", "adapter": "RemoteAdapter", "features": ["remote-api", "serverless", "on-demand"] },
+        "CP": { "runtime": "nginx", "host": "ec2", "adapter": "RemoteAdapter", "features": ["remote-api", "static", "persistent"] },
+        "WP": { "runtime": "php", "host": "ec2", "adapter": "WordPressAdapter", "features": ["wp-ajax", "wp-rest", "shortcodes"] },
+        "WW": { "runtime": "php", "host": "ec2", "adapter": "WordPressAdapter", "features": ["wp-ajax", "wp-rest", "wc-rest", "shortcodes", "cart"] },
+        "SH": { "runtime": "external", "host": "external", "adapter": "ShopifyAdapter", "features": ["storefront-api", "liquid", "srcset-fix"] },
+        "CL": { "runtime": "lambda", "host": "cloudfront", "adapter": "RemoteAdapter", "features": ["remote-api", "serverless", "custom"] },
+        "S3": { "runtime": "external", "host": "s3", "adapter": "RemoteAdapter", "features": ["static", "s3-hosted"] },
+        "LM": { "runtime": "nginx", "host": "lightsail", "adapter": "RemoteAdapter", "features": ["remote-api", "persistent"] },
+        "L3": { "runtime": "lambda", "host": "cloudfront", "adapter": "RemoteAdapter", "features": ["remote-api", "serverless", "web3", "on-demand"] }
+    },
+
+    "agent_platforms": {
+        "CL": { "provider": "Anthropic" },
+        "GP": { "provider": "OpenAI" },
+        "GM": { "provider": "Google" },
+        "CA": { "provider": "Custom-built" },
+        "OT": { "provider": "Various" }
+    },
+
+    "database_platforms": {
+        "S3":  { "service": "AWS S3" },
+        "RD":  { "service": "AWS RDS" },
+        "DY":  { "service": "AWS DynamoDB" },
+        "GIT": { "service": "GitHub" },
+        "TPD": { "service": "External" }
+    },
+
+    "node_platforms": {
+        "W3G": { "service": "Web3 DNS Gateway" },
+        "API": { "service": "API Service" },
+        "RDH": { "service": "Redirect Service" },
+        "W3S": { "service": "Web3 DAAS" },
+        "LLM": { "service": "LLM Service" },
+        "OTH": { "service": "Various" }
+    },
+
+    "infrastructure_platforms": {
+        "LS":  { "service": "AWS Lightsail" },
+        "EC2": { "service": "AWS EC2" },
+        "RDS": { "service": "AWS RDS" },
+        "S3B": { "service": "AWS S3" },
+        "LMB": { "service": "AWS Lambda" },
+        "SNS": { "service": "AWS SNS" },
+        "SQS": { "service": "AWS SQS" },
+        "AGW": { "service": "AWS API Gateway" },
+        "CF":  { "service": "AWS CloudFront" }
+    },
+
+    "other_platforms": {
+        "OTH": { "service": "Various" }
+    },
+
+    "web_protocols": {
+        "W2": { "description": "Traditional DNS (ICANN TLDs)" },
+        "W3": { "description": "Blockchain DNS (.domains, emoji TLDs)" }
+    },
+
+    "status_values": {
+        "planned": { "display": "Planned", "color": "gray" },
+        "wip":     { "display": "Work in Progress", "color": "yellow" },
+        "live":    { "display": "Live", "color": "green" }
+    },
+
+    "managed_by": {
+        "L": { "description": "Managed by Lambda management system" },
+        "R": { "description": "Managed by Radius workflow engine" },
+        "M": { "description": "Manually managed" },
+        "E": { "description": "Managed by external platform (Shopify, etc.)" }
+    },
+
+    "persistence": {
+        "D": { "description": "Content generated at request time" },
+        "P": { "description": "Content pre-rendered and stored" }
+    },
+
+    "website_purpose": {
+        "brochure": "Informational/marketing site",
+        "product_store": "Product showcase/store",
+        "domain_store": "Domain name marketplace",
+        "portal": "User portal/dashboard",
+        "console": "Admin console/management interface",
+        "other": "Other purpose"
+    },
+
+    "platform_config": {
+        "WP": { "ajaxUrl": "/wp-admin/admin-ajax.php", "restUrl": "/wp-json/", "useNonce": true },
+        "WW": { "ajaxUrl": "/wp-admin/admin-ajax.php", "restUrl": "/wp-json/", "wcRestUrl": "/wp-json/wc/v3/", "useNonce": true, "cartIntegration": true },
+        "SH": { "storefrontApi": true, "removeSrcset": true, "liquidTemplates": true },
+        "CO": { "apiBaseUrl": "https://data.shopnet.domains/api/v1", "useRemoteApi": true },
+        "CP": { "apiBaseUrl": "https://data.shopnet.domains/api/v1", "useRemoteApi": true }
+    },
+
+    "legacy_code_map": {
+        "L":  "CO",
+        "R":  "CP",
+        "L3": "CO"
+    }
+}
