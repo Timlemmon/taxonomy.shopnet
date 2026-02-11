@@ -618,7 +618,7 @@ Reports issuance statistics: total UIDs, total log entries, coverage percentage,
 
 | Instance | Host | Databases | UID Types Stored |
 |----------|------|-----------|------------------|
-| **Instance 1** | `amazon-products-db-1754023596.cenq4au2o7vl.us-east-1.rds.amazonaws.com` | shopnet_connect, shopnet_sites, shopnet_assist, shopnet_data, amazon_products, KPI_Source | `sn_`, `sa_` |
+| **Instance 1** | `shopnet-things.cenq4au2o7vl.us-east-1.rds.amazonaws.com` | shopnet_connect, shopnet_sites, shopnet_assist, shopnet_data, amazon_products, KPI_Source | `sn_`, `sa_` |
 | **Instance 2** | `shopnet-crm-registry.cenq4au2o7vl.us-east-1.rds.amazonaws.com` | shopnet_crm, shopnet_registry | `su_`, `sl_` |
 | **Future** | TBD | shopnet_payments | `sp_` |
 

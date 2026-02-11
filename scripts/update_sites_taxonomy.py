@@ -8,7 +8,7 @@ from psycopg2.extras import RealDictCursor
 import os
 from pathlib import Path
 
-DB_HOST = os.environ.get("DB_HOST", "amazon-products-db-1754023596.cenq4au2o7vl.us-east-1.rds.amazonaws.com")
+DB_HOST = os.environ.get("DB_HOST", "shopnet-things.cenq4au2o7vl.us-east-1.rds.amazonaws.com")
 DB_PORT = int(os.environ.get("DB_PORT", 5432))
 DB_USER = os.environ.get("DB_USER", "postgres")
 DB_PASSWORD = os.environ.get("DB_PASSWORD", "J09GsxbZqFsWEuCH1nWIDG48uY4FFghG")

@@ -229,7 +229,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 
 conn = psycopg2.connect(
-    host="amazon-products-db-1754023596.cenq4au2o7vl.us-east-1.rds.amazonaws.com",
+    host="shopnet-things.cenq4au2o7vl.us-east-1.rds.amazonaws.com",
     port=5432,
     database="shopnet_connect",
     user="postgres",

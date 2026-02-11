@@ -25,7 +25,7 @@ const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const DRY_RUN = process.argv.includes('--dry-run');
 const API_BASE = process.argv.includes('--api-url')
     ? process.argv[process.argv.indexOf('--api-url') + 1]
-    : 'http://34.234.121.248:8001';
+    : 'http://50.19.186.215:8001';
 
 const OUTPUT_TARGETS = [
     {

@@ -12,7 +12,7 @@ The Taxonomizer has been successfully deployed to the production Shopnet Console
 
 ## What Was Deployed
 
-### Files Deployed to Server (34.234.121.248)
+### Files Deployed to Server (50.19.186.215)
 
 **Backend (6 Python files):**
 ```
@@ -229,7 +229,7 @@ If needed, rollback is simple:
 
 ```bash
 # SSH to server
-ssh -i /Keys/TLemmon.pem ubuntu@34.234.121.248
+ssh -i /Keys/TLemmon.pem ubuntu@50.19.186.215
 
 # Restore app.py backup
 cd /home/ubuntu/shopnet-console

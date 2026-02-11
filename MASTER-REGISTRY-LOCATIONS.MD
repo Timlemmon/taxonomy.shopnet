@@ -16,7 +16,7 @@
 ## Location Details
 
 ### RDS Instance 1
-**Host:** `amazon-products-db-1754023596.cenq4au2o7vl.us-east-1.rds.amazonaws.com`
+**Host:** `shopnet-things.cenq4au2o7vl.us-east-1.rds.amazonaws.com`
 **Database:** `shopnet_connect`
 **Region:** us-east-1
 **Status:** **LIVE** ✅
@@ -234,7 +234,7 @@ def check_uniqueness() -> dict:
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│  CONNECT SERVER (34.234.121.248)                            │
+│  CONNECT SERVER (50.19.186.215)                            │
 │  /opt/shopnet/connect-gateway/                              │
 │                                                             │
 │  CODE:                                                      │
@@ -247,7 +247,7 @@ def check_uniqueness() -> dict:
                           ▼
 ┌─────────────────────────────────────────────────────────────┐
 │  RDS INSTANCE 1                                             │
-│  amazon-products-db-1754023596...                           │
+│  shopnet-things...                           │
 │                                                             │
 │  DATABASE: shopnet_connect                                  │
 │  ├─ uid_registry         (89 UIDs - conflict checking)     │
@@ -264,11 +264,11 @@ def check_uniqueness() -> dict:
 
 ```bash
 # SSH to Connect Server
-ssh -i ~/VSCode/Keys/TLemmon.pem ubuntu@34.234.121.248
+ssh -i ~/VSCode/Keys/TLemmon.pem ubuntu@50.19.186.215
 
 # Connect to database
 PGPASSWORD='J09GsxbZqFsWEuCH1nWIDG48uY4FFghG' \
-psql -h amazon-products-db-1754023596.cenq4au2o7vl.us-east-1.rds.amazonaws.com \
+psql -h shopnet-things.cenq4au2o7vl.us-east-1.rds.amazonaws.com \
      -U postgres -d shopnet_connect
 
 # Query uid_registry

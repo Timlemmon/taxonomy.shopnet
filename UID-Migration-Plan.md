@@ -64,7 +64,7 @@ At current scale (~100 UIDs), collision is effectively impossible.
 
 ### Databases to Migrate
 
-#### RDS Instance 1: amazon-products-db-1754023596...us-east-1.rds.amazonaws.com
+#### RDS Instance 1: shopnet-things...us-east-1.rds.amazonaws.com
 
 | Database | Table | Column | Type | CHECK | Rows | Action |
 |----------|-------|--------|------|-------|------|--------|
@@ -127,19 +127,19 @@ Already v2 (no change needed):
 #### Step 1 — Dump all databases (both RDS instances)
 
 ```bash
-ssh -i ~/.ssh/TLemmon.pem ubuntu@34.234.121.248
+ssh -i ~/.ssh/TLemmon.pem ubuntu@50.19.186.215
 mkdir -p /home/ubuntu/backups/uid-migration
 
 # RDS Instance 1
-pg_dump -h amazon-products-db-1754023596.cenq4au2o7vl.us-east-1.rds.amazonaws.com \
+pg_dump -h shopnet-things.cenq4au2o7vl.us-east-1.rds.amazonaws.com \
   -U postgres -d shopnet_sites --no-owner -F c \
   -f /home/ubuntu/backups/uid-migration/shopnet_sites_pre-v2.dump
 
-pg_dump -h amazon-products-db-1754023596.cenq4au2o7vl.us-east-1.rds.amazonaws.com \
+pg_dump -h shopnet-things.cenq4au2o7vl.us-east-1.rds.amazonaws.com \
   -U postgres -d shopnet_assist --no-owner -F c \
   -f /home/ubuntu/backups/uid-migration/shopnet_assist_pre-v2.dump
 
-pg_dump -h amazon-products-db-1754023596.cenq4au2o7vl.us-east-1.rds.amazonaws.com \
+pg_dump -h shopnet-things.cenq4au2o7vl.us-east-1.rds.amazonaws.com \
   -U postgres -d shopnet_connect --no-owner -F c \
   -f /home/ubuntu/backups/uid-migration/shopnet_connect_pre-v2.dump
 
