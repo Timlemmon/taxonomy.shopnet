@@ -1,10 +1,9 @@
 # Taxonomy Session Handoff
 
-**Date:** February 10, 2026
-**Current Session:** Second continuation (staged prompts + Bedrock provider)
-**Previous Session:** Continuation of a07b1c63 (LLM wiring, deployment, debugging)
-**Session Before That:** a07b1c63 (died — prompt too long at 61 MB after 7 context resets)
-**Session Before That:** 3a0d5e8f (died Feb 8 — prompt too long at 54 MB)
+**Date:** February 11, 2026
+**Died:** prompt too long at 52 MB (4th death of this session lineage)
+**Session ID:** a07b1c63 (trimmed and resumed multiple times, finally died during Agent Optimizer + old server archaeology)
+**Previous deaths:** 61 MB (Feb 10), 54 MB (Feb 8 as 3a0d5e8f)
 
 ---
 
@@ -19,7 +18,28 @@
 
 ---
 
-## What Was Completed This Session (Feb 10, 2026 — second continuation)
+## What Was Completed in Final Session (Feb 10-11, 2026)
+
+### Agent Optimizer GUI Panel — COMPLETE (Step 2.1)
+- **Blueprint:** `shopnet.network-console/agent_optimizer_api.py` — Flask blueprint with API endpoints
+- **Frontend:** JS + CSS for Agent Optimizer panel in console GUI
+- **SQL:** `004_prompt_test_tables.sql` — 2 new tables created on live RDS
+- **API endpoints:** All returning correctly (9 agents loaded, analytics working)
+- **Bug fix:** Column name mismatch — `persona_name` → `agent_user_name` in agents table query
+- Deployed to server, all endpoints verified
+
+### Old Server Archaeology — COMPLETE
+- Investigated choiceassistai server — found original agent platform lost for 2 years
+- Backed up useful findings for future reference
+- Also investigated old domain assist prototypes (webdomaintools server) for Pinecone, component modules
+- Findings documented for potential reuse in future agent platform
+
+### Agent UID Cleanup — COMPLETE
+- Found and replaced old-format agent UIDs on server
+
+---
+
+## What Was Completed Earlier This Session
 
 ### Bedrock as Second LLM Provider — COMPLETE
 - **File:** `connect.shopnet/backend/shopnet_connect_api.py`
@@ -129,10 +149,12 @@ Frontend → Console Flask (8001) → Connect Gateway FastAPI (8000) → Ollama 
 
 ## What Needs To Be Done Next
 
-### In Progress
-1. **Agent Chatbot Best Practices document** — Research was launched (web search) but may not have completed before session end. Save to `assist.shopnet/docs/AGENT-CHATBOT-BEST-PRACTICES.md`. Topics: trigger-based prompt staging, efficient prompt structuring, infrastructure (GPU instances, Ollama vs vLLM), open source model selection, cost comparison self-hosted vs API, prompt caching.
+### In Progress When Session Died
+1. **Agent Optimizer JS debugging** — The panel was built and deployed but the JS may have scoping/loading issues in the live console. The last messages show Claude was checking the JS file for syntax errors and verifying it loads on the live server.
 
-2. **Update Claudax Prompt Design doc** — `taxonomy.shopnet/TAXONOMIZER-AGENT-PROMPT-DESIGN.MD` needs a new section documenting the staged prompt system, conditional L2 logic, and phase detection. The code is done, the doc just needs to match.
+2. **Agent Chatbot Best Practices document** — Research was launched but may not have completed. Save to `assist.shopnet/docs/AGENT-CHATBOT-BEST-PRACTICES.md`.
+
+3. **Update Claudax Prompt Design doc** — Needs staged prompt system, conditional L2 logic, and phase detection documented.
 
 ### Short Term
 3. **Test staged prompts in browser** — The code is deployed, needs real testing to confirm phase transitions work and Ollama is actually faster with smaller prompts
@@ -147,12 +169,8 @@ Frontend → Console Flask (8001) → Connect Gateway FastAPI (8000) → Ollama 
 10. **Dynamic taxonomy loading** — Load from `taxonomy_law` instead of hardcoded prompt
 11. **Hybrid cost routing** — Auto-select provider based on conversation phase (Ollama for simple, Bedrock for complex)
 
-### Connect Server Migration
-12. **Connect Gateway is migrating** — user mentioned this. After migration, update:
-    - Server IP in deployment scripts
-    - `OLLAMA_URL` env var if Ollama moves
-    - `CONNECT_API_URL` in Console systemd service
-    - Any hardcoded IPs in Connect Gateway code
+### Connect Server Migration — DONE
+12. **Server migrated to EC2** — New IP: `50.19.186.215` (was `34.234.121.248`). Migration completed Feb 11. All services running on new EC2.
 
 ---
 
@@ -226,4 +244,4 @@ Do NOT take Playwright screenshots on every step. Only screenshot on errors, max
 
 ---
 
-*Updated by second continuation session on Feb 10, 2026*
+*Updated by Terminal Claude (monitor session) on Feb 11, 2026 — session died for 4th time at 52 MB*
